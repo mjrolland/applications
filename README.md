@@ -6,4 +6,4 @@ mj.rolland@gmail.com
 
 * 1-page resume: [link to resume](AppliedEpi/html-resume-master/resume_mr_en.html)
 * 1-page cover letter: [link to cover letter](AppliedEpi/cover_letter.html)
-* example markdown file: [link to template .Rmd](), [link to functions](), [link to output]()
+* example markdown file: [link to template .Rmd](), [link to functions](), [link to example output]()

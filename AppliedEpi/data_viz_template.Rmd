@@ -1,0 +1,169 @@
+---
+linestretch: 1.2
+output: 
+  pdf_document:
+    number_sections: true
+    includes:
+        in_header: header.tex
+        keep_tex: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+options(scipen = 10000)
+```
+
+![](../figs/logos2.png){ width=100% }  
+
+\btwocol
+Cohorte SEPAGES  
+Equipe d'épidémiologie environnementale appliquée  
+à la reproduction et la santé respiratoire  
+Institut pour l'Avancée des Biosciences   
+Inserm U1209 - CNRS – UGA  
+Allée des Alpes   
+38700 La Tronche  
+contact-sepages@inserm.fr  
+
+\columnbreak
+
+\qquad \qquad \qquad `r nom`  
+\null \qquad \qquad \qquad `r adresse1`  
+\null \qquad \qquad \qquad `r adresse1b`  
+\null \qquad \qquad \qquad `r adresse2`  
+\null \qquad \qquad \qquad `r adresse2b`  
+
+\etwocol
+
+\bigskip
+
+Objet : Etude SEPAGES - Estimation de l'exposition aux polluants chimiques pendant la grossesse\newline
+
+Chère Madame, 
+
+Vous participez à l'étude SEPAGES, qui vise à mieux comprendre les relations entre les facteurs environnementaux et la santé des femmes enceintes, du fœtus, du nouveau-né et de l'enfant.
+
+Au cours de votre grossesse, vous avez recueilli pour l'étude SEPAGES, à plusieurs reprises, des échantillons d'urine. Grâce à ces échantillons, nous avons pu effecteur des dosages de plusieurs composés chimiques de la famille des phénols et des phtalates afin de pouvoir estimer votre exposition à ces différents polluants chimiques. Vous trouverez dans les pages suivantes les résultats vous concernant pour les mesures réalisées dans vos urines pendant votre grossesse. Les données de votre enfant sont en cours d'analyse. 
+
+Nous vous remercions beaucoup pour votre participation, ainsi que celle de votre conjoint et de votre enfant, qui sont très précieuses pour améliorer les connaissances scientifiques en santé environnementale.\newline \newline
+
+L'équipe SEPAGES
+
+\pagebreak
+
+# Quels sont les polluants dosés dans le cadre de l'étude SEPAGES 
+
+Les marqueurs d'expositions à certains composés de la famille des phénols et des phtalates ont été dosés dans les urines des femmes de la cohorte SEPAGES. Ces composés ont été choisis car l'exposition est courante en population générale et qu'ils sont suspectés d'affecter la santé de l'enfant. Certains phénols et phtalates sont des perturbateurs endocriniens, c'est à dire qu'ils sont capables d'interagir avec le système hormonal qui est impliqué dans de nombreuses fonctions de l'organisme : métabolisme, fonctions reproductrices, développement du système nerveux central... Les conséquences biologiques de l'exposition précoce à ces composés sont quant à elles encore mal appréhendées et complexes à étudier. C'est pourquoi l'étude des effets de l'exposition aux perturbateurs endocriniens sur la santé représente aujourd'hui un enjeu majeur pour le corps médical et les pouvoirs publics.
+
+# Comparaison des résultats de l'étude SEPAGES et de l'étude ESTEBAN conduite en population générale.
+
+Il existe très peu d'études à ce jour qui ont effectués des dosages de polluants chimiques en population générale en France. Santé Publique France a mené, entre 2014 et 2016, l'étude ESTEBAN pour laquelle des dosages ont été réalisés chez 900 adultes représentatifs de la population générale. Dans ce document, les concentrations moyennes de l'étude SEPAGES sont comparées aux concentrations moyennes de l'étude Estéban qui sont les seules données disponibles à ce jour qui caractérisent l'imprégnation de la population française à ces polluants. Dans l'étude ESTEBAN, le dosage de ces polluants a été effectué sur un échantillon urinaire unique recueilli chez des femmes non-enceintes contrairement à l'étude Sepages où de nombreuses urines ont été utilisées pour doser l'exposition aux polluants chimiques pendant la grossesse. La comparaison entre les niveaux mesurés dans ces deux études est donc à interpréter avec précaution en raison notamment de ces différences liées au recueil des urines et à la population d'étude. Par ailleurs il n'existe pas à ce jour de valeurs limites en deçà desquelles l'exposition à ces polluants ne présente pas un effet possible pour la santé. 
+
+# Interprétation 
+
+Les résultats présentés dans ce document concernent les semaines de recueils urinaires que vous avez réalisées au cours du deuxième et troisième trimestres de grossesse. La \color{red}**première semaine de mesures** \color{black} s'est déroulée en `r my_t2` (`r ga_t2`\textsuperscript{ème} semaine de grossesse). La \color{blue}**deuxième semaine de mesures** \color{black} s'est déroulée en `r my_t3` (`r ga_t3`\textsuperscript{ème} semaine de grossesse). Les valeurs exactes mesurées pour tous les composés se trouvent dans un tableau à la fin du document. Les niveaux pour les composés les plus détectés seront présentés sous forme d'histogramme comme celui-ci :
+
+```{r, echo=FALSE, out.width="75%", fig.align="center"}
+knitr::include_graphics("../figs/hist_interpretation.png")
+```
+
+# Bisphénol A
+
+Le bisphénol A est un composé chimique principalement utilisé dans la production de plastiques et de résines. Son utilisation a été interdite en France dans les emballages alimentaires, ustensiles de cuisine et les biberons. Depuis 2020, son utilisation dans les tickets de caisse est aussi limitée. Le bisphénol A est classé comme perturbateur endocrinien par l'Organisation Mondiale de la Santé (OMS) et l'Agence européenne des substances chimique (ECHA). Il est suspecté d'être associé à de nombreuses pathologies (troubles du comportement, diabète, obésité, maladies cardiovasculaires). De nos jours le Bisphénol A tend à être remplacé par les bisphénols S et F aux propriétés similaires.\smallskip
+
+Dans l'étude SEPAGES, la concentration moyenne des femmes enceinte (1,9$\mu$g/l) est plus basse que la concentration moyenne reportée dans l'étude ESTEBAN pour des femmes âgées de 18 à 49 ans (2,2$\mu$g/l). \smallskip
+
+```{r}
+comp_group <- c("BPA_total")
+```
+
+```{r fig.height = 1.8, fig.width = 2.2, fig.align = "center"}
+plot_hist(samples, comp_group, id, my_t2, my_t3)
+```
+
+# Parabènes
+
+Les parabènes sont une famille de composés chimiques aux propriétés antibactériennes et antifongiques. Ils sont généralement utilisés comme conservateurs dans les cosmétiques, les médicaments et les aliments et sont notés E214-E219 dans la liste des ingrédients. Ils sont très présents dans notre environnement quotidien. Ils sont soupçonnés d'être des perturbateurs endocriniens mais leurs effets sur la santé ne sont pas bien connus.\smallskip 
+
+Dans l'étude SEPAGES, la concentration moyenne de methylparaben est plus élevée que celle retrouvée dans l'étude ESTEBAN (12,4$\mu$g/l pour l'étude SEPAGES et 10,9$\mu$g/l pour l'étude ESTEBAN). Pour l'ethlyparaben, les concentrations sont les mêmes entre les deux études (0,7$\mu$g/l). Le propylparaben n'a pas été détecté chez suffisamment de personnes dans l'étude ESTEBAN. \smallskip
+
+```{r}
+comp_group <- c("MEPA_total", "PRPA_total", "ETPA_total")
+```
+
+```{r fig.height = 1.8, fig.align = "center"}
+plot_hist(samples, comp_group, id, my_t2, my_t3)
+
+```
+
+# Autres phénols
+
+La benzophénone-3 est un composé chimique utilisé comme filtre anti ultra-violet dans certains  produits de protection solaire, cosmétiques et emballages alimentaires imprimés comme. Il est soupçonné d'être un perturbateur endocrinien mais son effet sur la santé n'est pas encore bien connu. \smallskip
+
+Le triclosoan est agent chimlique utilisé comme antibactérien dans les produits de beauté et d'hygiène. Il est soupçonné d'être un perturbateur endocrinien. En France et en Europe, l'utilisation du triclosan dans les cosmétiques, le dentifrice et les bains de bouches a été réglementée (en 2009 puis en 2014). Le triclosan peut agir sur l'axe thyroïdien qui, pendant la grossesse, est impliqué dans le développement du fœtus. \smallskip
+
+La benzophénone-3 et le triclosan n'ont pas été dosés dans l'étude ESTEBAN. Il n'existe donc pas de valeur de comparaison avec l'étude SEPAGES. \smallskip
+
+```{r}
+comp_group <- c("TRCS_total", "OXBE_total")
+```
+
+```{r fig.height = 1.8, fig.width = 4.5, fig.align = "center"}
+plot_hist(samples, comp_group, id, my_t2, my_t3)
+
+```
+
+# Phthalates
+
+Les phtalates sont des substances chimiques utilisées comme plastifiants dans de nombreux produits de consommation courante (emballages alimentaires, jouets, revêtements de sol en vinyle, produits cosmétiques, produits d'entretien ménagers, peintures, etc). L'usage de certains phtalates dans les jouets, les appareils électroniques, les emballages alimentaires, les dispositifs médicaux et les cosmétiques est encadrée par la règlementation européenne et française. \smallskip
+
+Dans l'étude SEPAGES, les concentrations moyennes de MEP, MnBP, MiBP et MBzP sont moins élevées que celles retrouvées dans l'étude ESTEBAN. \smallskip
+
+Les niveaux mesurés dans l'étude SEPAGES sont : 22,7 $\mu$g/l (MEP); 12,8 $\mu$g/l (MnBP); 18,1  $\mu$g/l (MiBP) et 4,6 $\mu$g/l (MBzP). Les niveaux mesurés dans l'étude ESTEBAN sont : 50,3 $\mu$g/l (MEP); 17,7 $\mu$g/l (MnBP); 24,7 $\mu$g/l (MiBP) et 5,4 $\mu$g/l (MBzP).\smallskip
+
+La concentration moyenne de la somme des DEHP est plus élevée dans l'étude SEPAGES (34,7 $\mu$g/l) que dans l'étude ESTEBAN (16,1 $\mu$g/l). \smallskip
+
+```{r}
+comp_group <- c("DEHP_ms2", "DiNP_ms2", "DINCH_ms2", "MEP", "MnBP", "MiBP", "MBzP", "ohMPHP")
+```
+
+```{r fig.height = 4.2, fig.align = "center"}
+plot_hist(samples, comp_group, id, my_t2, my_t3)
+```
+
+```{r}
+comp_group <- names(comp_labels())
+```
+
+\pagebreak
+
+# Tableau des mesures
+
+Dans le tableau qui suit :
+
+* "ND" signifie que le composé a été mesuré mais n'a pas été détecté (Non Détecté)
+* "/" signifie que le composé n'a pas été mesuré dans votre échantillon, en effet certains composés ont été ajoutés après le début de l'étude
+
+```{r}
+print_tab(samples, comp_group, id, my_t2, my_t3) %>%
+  kbl("latex",
+      booktabs = T,
+      linesep = "",
+      caption = "Niveaux mesurés en microgrammes/l",
+      align = c("l", "c", "c", "c", "c", "c")) %>%
+  add_header_above(c("  " = 1,
+                     "Ensemble de la cohorte Sepages" = 3,
+                     "Vos semaines de mesure" = 2)) %>%
+  kable_styling(latex_options = c("hold_position"),
+                full_width = FALSE) %>%
+  add_footnote(c("* 95% des participantes Sepages ont une valeur suppérieure à celle-ci",
+                 "** 50% des participantes Sepages ont une valeur suppérieure à celle-ci",
+                 "*** 5% des participantes Sepages ont une valeur suppérieure à celle-ci"),
+               notation = "none")
+
+```
+
+# Informations complémentaires
+
+Les rapport sur l'imprégnation de la population française par les substances chimiques (dont les biphénols, les parabènes et les phthalates) sont disponibles sur le site de Santé Publique France à l'adresse suivante : \color{blue}https://www.santepubliquefrance.fr/determinants-de-sante/exposition-a-des-substances-chimiques/perturbateurs-endocriniens/publications/ 
+
