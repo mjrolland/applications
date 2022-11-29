@@ -22,9 +22,9 @@ I am the co-author of the Epidemiology CRAN task view ([cran.r-project.org/web/v
 
 I feel capable of undertaking your « general » R/epi modules and some of the more specific ones. I have extensive experience in data visualisation with `{ggplot2}`, reporting with `{rmarkdown}` and now `{quarto}`, working with Git and GitHub/GitLab, working with geo-spatial data and I use RedCap. However, I have little experience with `{shiny}` and I have never used SQL with R.
 
-I speak French (mother tongue) and English (bilingual, my mother is British) and a little German. I am willing to travel internationally. I live in Grenoble (FR). Regarding availability, I am open to discussion but for 2023 I will probably be available for only one or two week-long courses plus a couple of half day courses each month. I am comfortable with teaching at a distance but I prefer working in-person, especially for teaching.
+I speak French (mother tongue) and English (bilingual, my mother is British) and a little German. I am willing to travel internationally. I live in Grenoble (FR). Regarding availability, we can discuss according to your needs, but for 2023 I would probably be available for one or two week-long courses. I am comfortable with teaching at a distance but I highly prefer working in-person.
 
-I am a sociable and patient person and I enjoy teaching, R and field epidemiology, and would be very interested in working with Applied Epi.  
+I am a sociable and patient person and I enjoy teaching, R and field epidemiology, hence I would be very interested in working for Applied Epi.  
 
 I am available for any further question and hope to hear from you soon.
 

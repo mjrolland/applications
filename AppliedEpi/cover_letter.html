@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,6 +67,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="date">November 24, 2022</p>
     </div>
   </div>
+  
     
   </div>
   
@@ -82,8 +83,8 @@ ul.task-list li input[type="checkbox"] {
 <p>I have taught R to colleagues throughout my career. When I was working in Bordeaux’ public health school (Isped) I taught R and the tidyverse to members of the Alima NGO with whom I was sharing offices (<code>{ggplot2}</code>, <code>{dplyr}</code>, <code>{tidyr}</code>). I have given many R related talks with the R user group of Grenoble (FR) of which I am the coordinator (website and YouTube channel : <a href="r-in-grenoble.github.io/sessions.html">r-in-grenoble.github.io/sessions.html</a>). I have taught several applied statistics classes at the Grenoble University for healthcare practitioners (nurses, doctors, etc), mainly linear and logistic regression.</p>
 <p>I am the co-author of the Epidemiology CRAN task view (<a href="cran.r-project.org/web/views/Epidemiology.html">cran.r-project.org/web/views/Epidemiology.html)</a>) and was a project manager for the R Epidemics Consortium (RECON) to develop their task manager (<a href="tasks.repidemicsconsortium.org/">tasks.repidemicsconsortium.org/</a>).</p>
 <p>I feel capable of undertaking your « general » R/epi modules and some of the more specific ones. I have extensive experience in data visualisation with <code>{ggplot2}</code>, reporting with <code>{rmarkdown}</code> and now <code>{quarto}</code>, working with Git and GitHub/GitLab, working with geo-spatial data and I use RedCap. However, I have little experience with <code>{shiny}</code> and I have never used SQL with R.</p>
-<p>I speak French (mother tongue) and English (bilingual, my mother is British) and a little German. I am willing to travel internationally. I live in Grenoble (FR). Regarding availability, I am open to discussion but for 2023 I will probably be available for only one or two week-long courses plus a couple of half day courses each month. I am comfortable with teaching at a distance but I prefer working in-person, especially for teaching.</p>
-<p>I am a sociable and patient person and I enjoy teaching, R and field epidemiology, and would be very interested in working with Applied Epi.</p>
+<p>I speak French (mother tongue) and English (bilingual, my mother is British) and a little German. I am willing to travel internationally. I live in Grenoble (FR). Regarding availability, we can discuss according to your needs, but for 2023 I would probably be available for one or two week-long courses. I am comfortable with teaching at a distance but I highly prefer working in-person.</p>
+<p>I am a sociable and patient person and I enjoy teaching, R and field epidemiology, hence I would be very interested in working for Applied Epi.</p>
 <p>I am available for any further question and hope to hear from you soon.</p>
 <p>Kind regards,<br>
 Matthieu</p>
@@ -131,7 +132,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -167,24 +185,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
