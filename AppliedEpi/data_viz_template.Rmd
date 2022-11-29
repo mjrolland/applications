@@ -64,6 +64,7 @@ Il existe très peu d'études à ce jour qui ont effectués des dosages de pollu
 Les résultats présentés dans ce document concernent les semaines de recueils urinaires que vous avez réalisées au cours du deuxième et troisième trimestres de grossesse. La \color{red}**première semaine de mesures** \color{black} s'est déroulée en `r my_t2` (`r ga_t2`\textsuperscript{ème} semaine de grossesse). La \color{blue}**deuxième semaine de mesures** \color{black} s'est déroulée en `r my_t3` (`r ga_t3`\textsuperscript{ème} semaine de grossesse). Les valeurs exactes mesurées pour tous les composés se trouvent dans un tableau à la fin du document. Les niveaux pour les composés les plus détectés seront présentés sous forme d'histogramme comme celui-ci :
 
 ```{r, echo=FALSE, out.width="75%", fig.align="center"}
+# print example histogram
 knitr::include_graphics("../figs/hist_interpretation.png")
 ```
 
@@ -74,10 +75,12 @@ Le bisphénol A est un composé chimique principalement utilisé dans la product
 Dans l'étude SEPAGES, la concentration moyenne des femmes enceinte (1,9$\mu$g/l) est plus basse que la concentration moyenne reportée dans l'étude ESTEBAN pour des femmes âgées de 18 à 49 ans (2,2$\mu$g/l). \smallskip
 
 ```{r}
+# list compounds to plot
 comp_group <- c("BPA_total")
 ```
 
 ```{r fig.height = 1.8, fig.width = 2.2, fig.align = "center"}
+# plot histogram
 plot_hist(samples, comp_group, id, my_t2, my_t3)
 ```
 
@@ -88,12 +91,13 @@ Les parabènes sont une famille de composés chimiques aux propriétés antibact
 Dans l'étude SEPAGES, la concentration moyenne de methylparaben est plus élevée que celle retrouvée dans l'étude ESTEBAN (12,4$\mu$g/l pour l'étude SEPAGES et 10,9$\mu$g/l pour l'étude ESTEBAN). Pour l'ethlyparaben, les concentrations sont les mêmes entre les deux études (0,7$\mu$g/l). Le propylparaben n'a pas été détecté chez suffisamment de personnes dans l'étude ESTEBAN. \smallskip
 
 ```{r}
+# list compounds to plot
 comp_group <- c("MEPA_total", "PRPA_total", "ETPA_total")
 ```
 
 ```{r fig.height = 1.8, fig.align = "center"}
+# plot histogram
 plot_hist(samples, comp_group, id, my_t2, my_t3)
-
 ```
 
 # Autres phénols
@@ -105,12 +109,13 @@ Le triclosoan est agent chimlique utilisé comme antibactérien dans les produit
 La benzophénone-3 et le triclosan n'ont pas été dosés dans l'étude ESTEBAN. Il n'existe donc pas de valeur de comparaison avec l'étude SEPAGES. \smallskip
 
 ```{r}
+# list compounds to plot
 comp_group <- c("TRCS_total", "OXBE_total")
 ```
 
 ```{r fig.height = 1.8, fig.width = 4.5, fig.align = "center"}
+# plot histogram
 plot_hist(samples, comp_group, id, my_t2, my_t3)
-
 ```
 
 # Phthalates
@@ -124,15 +129,13 @@ Les niveaux mesurés dans l'étude SEPAGES sont : 22,7 $\mu$g/l (MEP); 12,8 $\mu
 La concentration moyenne de la somme des DEHP est plus élevée dans l'étude SEPAGES (34,7 $\mu$g/l) que dans l'étude ESTEBAN (16,1 $\mu$g/l). \smallskip
 
 ```{r}
+# list compounds to plot
 comp_group <- c("DEHP_ms2", "DiNP_ms2", "DINCH_ms2", "MEP", "MnBP", "MiBP", "MBzP", "ohMPHP")
 ```
 
 ```{r fig.height = 4.2, fig.align = "center"}
+# plot histogram
 plot_hist(samples, comp_group, id, my_t2, my_t3)
-```
-
-```{r}
-comp_group <- names(comp_labels())
 ```
 
 \pagebreak
@@ -145,21 +148,36 @@ Dans le tableau qui suit :
 * "/" signifie que le composé n'a pas été mesuré dans votre échantillon, en effet certains composés ont été ajoutés après le début de l'étude
 
 ```{r}
+# set compound names
+comp_group <- names(comp_labels())
+```
+
+```{r}
+# Produce and print summary table
 print_tab(samples, comp_group, id, my_t2, my_t3) %>%
-  kbl("latex",
-      booktabs = T,
-      linesep = "",
-      caption = "Niveaux mesurés en microgrammes/l",
-      align = c("l", "c", "c", "c", "c", "c")) %>%
-  add_header_above(c("  " = 1,
-                     "Ensemble de la cohorte Sepages" = 3,
-                     "Vos semaines de mesure" = 2)) %>%
-  kable_styling(latex_options = c("hold_position"),
-                full_width = FALSE) %>%
-  add_footnote(c("* 95% des participantes Sepages ont une valeur suppérieure à celle-ci",
-                 "** 50% des participantes Sepages ont une valeur suppérieure à celle-ci",
-                 "*** 5% des participantes Sepages ont une valeur suppérieure à celle-ci"),
-               notation = "none")
+  kbl(
+    "latex",
+    booktabs = T,
+    linesep = "",
+    caption = "Niveaux mesurés en microgrammes/l",
+    align = c("l", "c", "c", "c", "c", "c"
+    )
+  ) %>%
+  add_header_above(
+    c("  " = 1,
+      "Ensemble de la cohorte Sepages" = 3,
+      "Vos semaines de mesure" = 2)
+  ) %>%
+  kable_styling(
+    latex_options = c("hold_position"),
+    full_width = FALSE
+  ) %>%
+  add_footnote(
+    c("* 95% des participantes Sepages ont une valeur suppérieure à celle-ci",
+      "** 50% des participantes Sepages ont une valeur suppérieure à celle-ci",
+      "*** 5% des participantes Sepages ont une valeur suppérieure à celle-ci"),
+    notation = "none"
+  )
 
 ```
 
