@@ -6,4 +6,4 @@ mj.rolland@gmail.com
 
 * 1-page resume: [link to resume](AppliedEpi/html-resume-master/resume_mr_en.html)
 * 1-page cover letter: [link to cover letter](AppliedEpi/cover_letter.html)
-* example markdown file: [link to template .Rmd](https://github.com/mjrolland/applications/AppliedEpi/data_viz_template.Rmd), [link to functions](https://github.com/mjrolland/applications/AppliedEpi/plot_functions.R), [link to example output](https://github.com/mjrolland/applications/AppliedEpi/pe_grossesse_14013.pdf)
+* example markdown file: [link to template .Rmd](https://github.com/mjrolland/applications/blob/main/AppliedEpi/data_viz_template.Rmd), [link to functions](https://github.com/mjrolland/applications/blob/main/AppliedEpi/plot_functions.R), [link to example output](https://github.com/mjrolland/applications/blob/main/AppliedEpi/pe_grossesse_14013.pdf)
